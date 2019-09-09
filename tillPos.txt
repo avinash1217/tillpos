@@ -1,0 +1,51 @@
+-- Table: "PricingRules"
+
+-- DROP TABLE "PricingRules";
+
+CREATE TABLE "PricingRules"
+(
+  id character varying(255) NOT NULL,
+  "dealDescription" text,
+  "discountDescription" text,
+  "companyName" character varying(255),
+  "pizzaPrices" json NOT NULL,
+  "pricingRule" json,
+  "createdAt" timestamp without time zone,
+  "updatedAt" timestamp without time zone,
+  CONSTRAINT "PricingRules_pkey" PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "PricingRules"
+  OWNER TO cloud;
+
+
+------------------------------------------------------------------------------------------------
+-- Table: "Orders"
+
+-- DROP TABLE "Orders";
+
+CREATE TABLE "Orders"
+(
+  id character varying(255) NOT NULL,
+  items json,
+  "orderInfo" json,
+  "prId" character varying(255) NOT NULL,
+  "prPricingRule" json,
+  "discountApplied" boolean DEFAULT false,
+  "dealApplied" boolean DEFAULT false,
+  "totalAmount" double precision NOT NULL,
+  "discountAmount" double precision,
+  currency character varying(255) NOT NULL,
+  "createdAt" timestamp without time zone,
+  "updatedAt" timestamp without time zone,
+  CONSTRAINT "Orders_pkey" PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "Orders"
+  OWNER TO cloud;
+
+-------------------------------------------------------------------------------------------------
