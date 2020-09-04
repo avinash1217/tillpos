@@ -52,7 +52,7 @@
     "request": "^2.74.0",
     "request-promise": "^4.1.0",
     "rx": "^4.1.0",
-    "sequelize": "^3.23.6",
+    "sequelize": "^6.3.5",
     "sha256": "^0.2.0",
     "shortid": "^2.2.6",
     "ssl-root-cas": "^1.2.3",
